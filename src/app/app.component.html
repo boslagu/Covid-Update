@@ -9,6 +9,10 @@
       border-collapse: collapse;
       width: 90%;
   }
+  footer span{
+    font-size: 25px;
+    font-style: italic;
+  }
   th{
       position: -webkit-sticky;
       position: sticky;
@@ -35,6 +39,10 @@
 
  tr:nth-child(odd){
       background-color:aquamarine;
+  }
+  footer{
+    height: 100px;
+    background-image: linear-gradient(to right, rgb(127, 255, 227), rgb(127, 172, 255));
   }
 </style>
 <h1>CoViD 19 Cases Updates</h1>
@@ -63,4 +71,5 @@
   </tr>
 </table>
 <div class="nextBtn"><span (click)="nextPage()">Next Page</span></div>
+<footer><pre><span><strong>Deleoper:</strong></span>   <span>Rommel M. Lagurin</span></pre></footer>
 <router-outlet></router-outlet>
