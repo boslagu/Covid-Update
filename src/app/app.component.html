@@ -20,29 +20,31 @@
       top: 0;
       height: 50px;
       width: 100px;
-      background-color: greenyellow;
+      background-color: rgba(108, 225, 90, 0.89);
   }
   h1{
       /* position: -webkit-sticky;
       position: sticky;
       top: 0; */
+      color: rgba(12, 137, 232, 0.91);
       text-align: center;
-      background-color:darkcyan;
+      background-image:linear-gradient(to right, rgba(159, 54, 49, 0.54), rgba(54, 105, 129, 0.54));
   }
-  .nextBtn{
-      color: brown;
+  .bottomNav{
+      color: rgba(12, 137, 232, 0.91);
       font-size: 30px;
+      background-image:linear-gradient(to right, rgba(159, 54, 49, 0.54), rgba(54, 105, 129, 0.54));
   }
   tr:nth-child(even){
-      background-color: blanchedalmond;
+      background-color: rgba(243, 241, 169, 0.72);
   }
 
  tr:nth-child(odd){
-      background-color:aquamarine;
+      background-color:rgba(105, 222, 230, 0.64);
   }
   footer{
     height: 100px;
-    background-image: linear-gradient(to right, rgb(127, 255, 227), rgb(127, 172, 255));
+    background-image: linear-gradient(to right, rgba(159, 54, 49, 0.54), rgba(54, 105, 129, 0.54));
   }
 </style>
 <h1>CoViD 19 Cases Updates</h1>
@@ -71,6 +73,6 @@
       <td>{{item.resident_of}}</td>
   </tr>
 </table>
-<pre> <div class="nextBtn"><span (click)="previousPage()">Previous Page</span>      <span (click)="nextPage()">Next Page</span>      <span (click)="viewAll()">View All</span></div></pre>
+<pre> <div class="bottomNav"><span (click)="previousPage()">Previous Page</span>      <span (click)="nextPage()">Next Page</span>      <span (click)="viewAll()">View All</span></div></pre>
 <footer><pre><span><strong>Deleoper:</strong></span>   <span>Rommel M. Lagurin</span></pre></footer>
 <router-outlet></router-outlet>
