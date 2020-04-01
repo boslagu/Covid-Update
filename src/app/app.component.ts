@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Comments } from './classes/comments';
+import { collectionData } from './classes/comments';
 import { myApiService } from './services/myapi.service'
 
 @Component({
@@ -10,7 +10,10 @@ import { myApiService } from './services/myapi.service'
 export class AppComponent {
   constructor(private _myApiService: myApiService){}
   
-  lst:Comments[];
+  searchNationality:string;
+  nationalityResult:number = null;
+  lst:collectionData[];
+  requestContainer:collectionData[];
   title = 'covid-update';
   
   startPoint : number =0;
@@ -21,19 +24,45 @@ export class AppComponent {
     this.endPoint +=50;
     scroll(0,0);
   }
+  previousPage(){
+    if (this.startPoint != 0){
+      this.startPoint -= 50;
+      this.endPoint -= 50;
+      scroll(0,0);
+    }
+  }
   viewAll(){
     this.startPoint = 0;
     this.endPoint = this.lst.length;
     scroll(0,0);
   }
-  
+  filterTable(list, searchValue){
+    if (searchValue != ""){
+      var cnt = 0;
+      this.lst = list.filter(res=>{
+        if (res.nationality.toLocaleLowerCase().match(searchValue.toLocaleLowerCase())){
+          cnt++;
+        }
+        return res.nationality.toLocaleLowerCase().match(searchValue.toLocaleLowerCase());
+      })
+      this.nationalityResult = cnt;
+    }else{
+      this.nationalityResult = null;
+      this.lst = this.requestContainer;
+      return this.lst ;
+    }
+  }
+
+
 
 
   ngOnInit(){
-    this._myApiService.getcomments()
+    this._myApiService.getData()
     .subscribe(
       data=>{
         this.lst = data;
+        this.requestContainer = data;
+        // console.log(data);
       }
     )
 

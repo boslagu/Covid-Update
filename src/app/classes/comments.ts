@@ -1,12 +1,12 @@
 
-export class Comments{
+export class collectionData{
     case_no: number;
     date: string;
     age: number;
     gender: string;
     nationality: string;
     hospital_admitted_to: string;
-    had_recent_travel_history_abroad: string;
+    travel_history: string;
     status: string;
-    other_information: string;
+    resident_of: string;
 }
